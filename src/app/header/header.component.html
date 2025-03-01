@@ -1,0 +1,26 @@
+<div class="app-header">
+  <div class="logo">
+    <h1>Blog</h1>
+  </div>
+  <div class="nav-buttons subbar">
+    @if(this.router.url=='/home'){
+    <button class="navButton" (click)="createBlog()">Create</button>
+    }
+    <div class="dropdown text-end">
+      <button class="btn btn-secondary dropdown-toggle"
+        style="margin: 2px; background-color:#f9f9f9;  color:#333; border:0px;" type="button" id="dropdownMenuButton"
+        data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"
+          style="font-size: 1.5rem;"></i></button>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+        @if(router.url!='/home/profile'){
+        <li><a class="dropdown-item" (click)="profile()"><i class="bi bi-person-circle"></i>Profile</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>}
+        <li><a class="dropdown-item" (click)="logout()"><i class="bi bi-box-arrow-right"></i>Logout</a></li>
+      </ul>
+      <!-- <button  type="button" class="btn btn-warn" (click)="back()">no</button>
+    <button type="button" class="btn btn-danger" (click)="logout()">yes</button> -->
+    </div>
+  </div>
+</div>

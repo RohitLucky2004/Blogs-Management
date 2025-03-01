@@ -1,0 +1,37 @@
+@if(this.router.url=='/'){<header>
+  <div class="title">
+    Blog
+  </div>
+</header>}
+<div class="container mt-5">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="col-md-6 ">
+      <div class="card ">
+       <div class="card-body ">
+    <h4 class="card-title text-center">Login</h4>
+    <form [formGroup]="loginForm" class="justify-content-center align-items-center" (ngSubmit)="submitted()">
+      <div class="from-group">
+      <label for="username">Username: </label>
+      <input id="username" type="text"  class="form-control" (change)="checkUsername($event)" formControlName="username" placeholder="userA" >
+        </div>
+        <div class="from-group position:relative">
+      <label for="password">Password: </label>
+      <div class="input-group">
+      <input id="password" [type]="hide?'password':'text'" class="form-control" formControlName="password" (change)="checkPassword()"  placeholder="userA@123" >
+      <i class="bi" [class]="hide?'bi-eye':'bi-eye-slash'" (click)="view()" style="position: absolute;top:50%;right:10px;transform:translateY(-50%);cursor:pointer;z-index:10;"></i>
+      </div>
+
+      </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="submit" class="btn btn-primary" [disabled]="submitButton">login</button>
+        </div>
+      </form>
+<div class="mt-3 text-center">
+  <p>Don't have an account?<a (click)="signUp()" href="signUp">Sign Up</a></p>
+</div>
+  </div>
+  </div></div></div></div>
+  <!-- submitButton?'loginForm.invalid':'loginForm.valid' -->
+
+
+

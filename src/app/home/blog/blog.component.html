@@ -1,0 +1,92 @@
+<body>
+    <div class="blog-form">
+        <div class="card position align-item-center">
+            <h2 class="title">Create a Blog Post</h2>
+            <div class="position-absolute top-0 end-0 p-2">
+                <button class="btn btn-sm btn-warning" (click)="goBack()">Back</button>
+            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="title">Title</label><br>
+                    <input id="title" class="form-control" [value]="blogDetails.title" type="text"
+                        formControlName="title" required />
+      
+                    @if(form.get('title')?.touched && form.get('title')?.errors?.['required']){
+                        <p class="text-danger">Title required</p>
+                    }
+                </div>
+                <div class="mb-3" style="position: relative">
+                    <label for="description">Description</label>
+                    <div class="form-control"> 
+                    @for(desc of descriptions;track $index){
+                          <div class="d-flex" style="position: relative" (click)="EditDesc(desc.textId)">
+                        @if(!edit[desc.textId]){
+                            <p class="text-muted" style="position: absolute; top:0px;right:0px;padding-right:5px">
+                                @if(desc.formated){
+                                    Code
+                                }
+                            </p>
+                            @if(desc.formated){
+                                <div class="form-control" style="border: 1.5px solid black">
+                                    <pre>{{desc.content}}</pre>
+                                </div>
+                            }
+                             @else{
+                                <p>{{desc.content}}</p>
+                            }
+                        }
+                        @else{
+                            <div >
+                            <textarea class="form-control" style="width: max-content" (mouseleave)="updateDesc(content.value,desc.textId)" value={{desc.content}} rows="4" 
+                                       type="text" #content  required></textarea>
+                            </div>
+                      }
+                    </div>
+                    }</div>
+                        <div style="position: relative">
+                        <div class="form-check form-switch" style="position: absolute; top:0px;right:0px;padding:5px" >
+                            <input type="checkbox" class="form-check-input" [value]=formated role="switch" (change)="changeFormate()">
+                              @if(formated){Code}@else{Text} </div>
+                               <br><br><textarea class="form-control" formControlName="description" rows="3" type="text" #content  required></textarea><br><br>
+                               <button style="position: absolute; bottom:0px;right:0px;padding:5px" class="btn btn-primary" type="button" (click)="addNewDesc(content.value);content.value=''">add</button>
+                            </div>
+                            @if(descriptions.length==0 && form.get('description')?.touched){
+                                <p class="text-danger">Minimum Description required</p>
+                            }
+                </div>
+                <div class="mb-3">
+                    <label for="media">Upload Media</label>
+                    <br> <input id="media" type="file" class="form-control" />
+                </div><br>
+                <div class="mb-3">
+                    @if(selectedTags.length>0){<label>Selected Tags</label><br>}
+                    <div class="checkBox-list"> <span *ngFor="let tag of selectedTags">
+                            <div class="selected-tag">
+                                {{tag}}
+                                <button type="button" (click)="removeTag(tag)" class="btn-cross">x</button>
+                            </div>
+                        </span></div>
+                </div>
+                <div class="mb-3">
+                    <div class="dropdown"> <label for="tags">Tags:</label><br>
+                        <select id="tags" *ngIf="!visible" formControlName="newtag" (change)="addTag($event)">
+                            <option *ngFor="let tag of exitsingTags" [value]="tag">{{tag}}</option>
+                        </select>
+                    </div><br>
+                    <div class="tagInput d-flex" style="gap:15px" *ngIf="visible"> <label for="newtag">Enter new tag:</label>
+                        <input id="newtag" type="text" #newTag placeholder="new tag" />
+                        <button (click)="addNewTag(newTag.value);newTag.value=''" class="btn btn-success"
+                            type="button">add</button>
+                        <button (click)="tagCancel()" class="btn btn-danger" type="button">cancel</button>
+                    </div>
+                </div>
+                <br>@if(this.title.getTitle()!="Edit Blog"){<button class="btn btn-primary" 
+                    type="submit"[disabled]="isFormValid" >Submit</button>}
+                @else{
+                <button class="btn btn-primary" (click)="blogUpdation()" type="button">Save Changes</button>
+                }
+            </form>
+        </div>
+    </div>
+
+</body>

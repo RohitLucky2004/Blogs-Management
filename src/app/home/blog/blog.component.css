@@ -1,0 +1,76 @@
+body{
+    background-color: #f8f9fa;
+}
+.blog-form{
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow:0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    justify-content: center;
+    /* position:; */
+}
+.title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #343a40;
+}
+.control{
+    margin-bottom: 15px;
+}
+label{
+    font-weight: 600;
+}
+.btn-submit{
+    display: block;
+    border-radius: 5px;
+    width:100%;
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-submit:hover{
+    background-color: #0056b3;
+}
+.mb-3{
+    border: 1.5px solid transparent ;
+    border-radius: 8px;
+    padding: 3px ; 
+}
+
+.checkBox-list{
+    display: flex;
+    max-height:75px;
+    overflow-x: auto;
+    padding: 5px;
+}
+.selected-tag{
+    font-size: 15px;
+    margin-right: 5px;
+    padding:5px ;
+}
+.control{
+    width: 90%;
+    border-radius: 5px;
+}
+.btn-cross{
+    background-color: transparent;
+    border: 0px;
+}
+.selected-tag{
+    border: 1px solid black;
+    width:max-content;
+    border-radius: 5px;
+    margin-bottom: 1px;
+}
+.selected-tag:hover{
+    border:1.2px solid rgb(97, 174, 247) ;
+}
+select{
+    width:450px;
+    height:20px;
+    font-size:15px;
+}

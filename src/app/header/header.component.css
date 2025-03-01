@@ -1,0 +1,140 @@
+
+.navButton{
+    font-size: 24px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    width: 80px;
+    height: max-content;
+    border-radius: 8px;
+    color:#333;
+    margin: 2px;
+    padding: 5px;
+}
+.navButton:hover{
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+} 
+
+
+.dropdown-menu{
+    min-width: 10rem;
+}
+.dropdown-item{
+    cursor: pointer;
+} 
+ .cst-dropdown{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: max-content
+}
+.cst-dropdown select{
+    width: 100%;
+    padding: 6px;
+    font-size: 16px;
+    color:#333;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+.cst-dropdown::after{
+    content:'▼';
+    position: absolute;
+    top:50%;
+    right:10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #666;
+}
+.cst-dropdown select:hover{
+    border-color: #888;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+.cst-dropdown select:focus{
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+.cst-dropdown select option{
+    padding: 12px;
+    background-color: #f9f9f9;
+    color:#333;
+}
+.cst-dropdown select option:checked{
+    background-color: #007bff;
+    color: #fff;
+} 
+
+.subbar{
+    font-size: 25px;
+    display:flex;
+    justify-content:space-between;
+    font-style:bold;
+  }
+  
+  .app-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background-color: grey;
+    color:white;
+    padding:0.5rem 1rem;
+    box-shadow:0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo h1{
+    margin:0;
+    font-size:1.5rem;
+    font-weight:bold;
+  }
+  
+  
+  .nav-button{
+  display:flex;
+  gap:1rem;
+  }
+  
+  .nav-button button{
+    background-color: #61dafb;
+    border:none;
+    color:#282c34;
+    padding:-.5rem 1rem;
+    font-size:1rem;
+    border-radius:4px;
+    cursor:pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button button:hover{
+    background-color: #21a1f1;
+  }
+  
+  .card{
+    transition: transform 0.2s;
+  }
+  
+  .card:hover{
+    transform: scale(1.03);
+  }
+  
+  .card-title{
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .btn-sm{
+    font-size: 0.85rem;
+  }
+
+  /* dialogRef=inject<DialogRef<boolean>>(DialogRef<boolean>);
+  logout(){
+    sessionStorage.clear()
+    this.router.navigate([])
+  }
+  back(){
+    this.dialogRef.close()
+  } */

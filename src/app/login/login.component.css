@@ -1,0 +1,58 @@
+header{
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+    color: white;
+}
+.title{
+ color: whitesmoke;
+ font-size: 25px
+}
+body{
+   justify-content: center;
+  justify-items: center;
+ 
+}
+.box{
+    background-color: whitesmoke;
+     align-content: center;
+    margin-left: 40%;
+    margin-top: 10%;
+    width:max-content;
+    height: min-content;
+    border: 1px solid wheat;
+    border-radius: 5px
+}
+label{
+    font-size: 25px;
+
+}
+input{
+    border-radius: 5px
+}
+
+.btn-box{
+ justify-content: space-between;
+}
+.am-1{
+    font-size: 15px;
+    padding: 5px;
+    display: flexbox;
+    border:1px solid black;
+    border-radius:5px;
+    padding: 4px;
+    margin: 4px;
+}
+.alert{
+    color: red;
+}
+button{
+    font-size: 20px;
+    margin: 4px;
+}
+.view-box{
+    justify-content: center;
+    border: 1px solid rgb(202, 200, 200);
+    border-left: 1px solid rgb(255, 255, 255);
+    padding-top: 3px
+}

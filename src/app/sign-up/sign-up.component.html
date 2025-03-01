@@ -1,0 +1,85 @@
+<div class="box">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+
+            @if(this.router.url=='/signUp'){
+            <h3 class="card-title text-center">New Account</h3>}
+            @else{<h3 class="card-title text-center">Change Details</h3>}
+
+            <form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit()">
+              @if(this.router.url=='/signUp'){
+
+              <div class="from-group">
+                <label for="username">Username:</label> <br>
+                <input type="text" (blur)="signUpForm.get('username')?.markAsTouched()" formControlName="username"
+                  (change)="checkUsername($event)" class="form-control" required>
+                <div class="text-danger" *ngIf="usernameDefect">username required with min 6 characters</div>
+                <div class="text-danger"
+                  *ngIf="signUpForm.get('username')?.touched && signUpForm.get('username')?.errors?.['required']">
+                  username required</div>
+              </div>
+              }
+
+              <div class="from-group">
+                <label for="nickname">name:</label><br>
+                <input type="text" [value]="userdetails.nickname" formControlName="nickname" (change)="nameCheck()"
+                  class="form-control" required>
+                <div class="text-danger"
+                  *ngIf="signUpForm.get('nickname')?.touched && signUpForm.get('nickname')?.errors?.['required']">name
+                  required</div>
+              </div>
+
+              <div class="from-group">
+                <label for="email">Email:</label><br>
+                <input type="mail" [value]="userdetails.email" (change)="emailCheck()" formControlName="email"
+                  class="form-control" required>
+                <div class="text-danger"
+                  *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.errors?.['email']">invalid email
+                </div>
+              </div>
+
+              <div class="from-group position-relative">
+                <label for="password">Password: </label>
+                <div class="input-group">
+                  <input id="password" [type]="hide?'password':'text'" class="form-control" formControlName="password"
+                    (change)="checkPassword()">
+                  <i class="bi" [class]="hide?'bi-eye':'bi-eye-slash'" (click)="view()"
+                    style="position: absolute;top:50%;right:10px;transform:translateY(-50%);cursor:pointer;z-index:10;"></i>
+                </div>
+                <div class="text-danger"
+                  *ngIf="signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['required']">
+                  password required</div>
+                <div class="text-danger" *ngIf="passwordDefect">{{msg}}</div>
+              </div>
+
+              <div class="from-group position-relative">
+                <label for="password"> Confirm Password: </label>
+                <div class="input-group">
+                  <input id="cpassword" [type]="hide1?'password':'text'" class="form-control"
+                    formControlName="cpassword" (change)="checkConfrimPassword($event)">
+                  <i class="bi" [class]="hide1?'bi-eye':'bi-eye-slash'" (click)="view1()"
+                    style="position: absolute;top:50%;right:10px;transform:translateY(-50%);cursor:pointer;z-index:10;"></i>
+                </div>
+                <div class="text-danger" *ngIf="pswdalert">makesure passwords are matched</div>
+              </div>
+              @if(this.router.url=='/signUp'){
+              <div class="d-flex justify-content-between mt-3">
+                <button (click)="navlogin()" class="btn btn-secondary">Back</button>
+                <button type="submit" class="btn btn-primary" [disabled]="signUpForm.invalid">submit</button>
+              </div>}
+              @else{
+              <div class="d-flex justify-content-between mt-3">
+                <button type="button" class="btn btn-primary mt-3" (click)="updateForm()">save</button>
+                <button type="button" class="btn btn-secondary mt-3" (click)="goback()">Back</button>
+              </div>
+              }
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+
+        <div class="card m-0 mt-2" (mouseenter)="showReplyEdit(comment)" (mouseleave)="showReplyEdit(comment)" >        <div class="card-body">
+               <div class="d-flex" style="padding: 4px"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+                   <div style="height: 30px;padding-left:5px">
+                        <h5 class="card-title" style="font-size: 15px; padding-bottom:0px; margin:0px">{{comment.username}}</h5>
+                        <p class="text-muted" style="font-size: 10px;margin:0px;padding-top: 0px">{{comment.updatedAt|TimeAgo}}</p>
+                   </div>
+                </div>
+           @if(this.showEdit[comment.comment_id]){
+            <div>
+                <input #UC type="text" value={{comment.comment}} class="form-control" placeholder="write a comment...." />
+        <button class="btn btn-primary" (click)="saveComment(comment.comment_id)">save</button> 
+                <button class="btn btn-secondary" (click)="cancelEdit(comment.comment_id)">cancel</button>  
+            </div>}
+            @else{<div >
+                <p class="card-text">{{comment.comment}}</p>
+            </div>}
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <button class="btn btn-sm btn-link" (click)="commentLike(comment.comment_id)">
+                       @if(!comment.commentLikes.includes(username)) {<i class="bi bi-hand-thumbs-up"></i>}
+                       @else{<i class="bi bi-hand-thumbs-up-fill"></i>}{{comment.commentLikes.length}}
+                    </button>
+                   @if(replyBtnVisible && this.level<=3){ <button class="btn btn-sm btn-link" (click)="onReply(comment.comment_id)">
+                        Replies {{comment.tags.length}}
+                    </button>}
+                </div>
+                @if(editBtnVisible){<button class="btn btn-sm btn-link" (click)="onEdit(comment.comment_id,comment.comment)">
+                    edit
+                </button>}
+            </div>
+            @if(this.showReply[comment.comment_id]){<div>
+                <div class="input-group mt-1 d-flex " style="margin-left: 0.5rem">
+                    <input #RC type="text" class="form-control" placeholder="write a Reply..." />
+                    <button class="btn btn-primary" (click)="reply(comment.comment_id,RC.value);RC.value=''">send</button>
+                </div>
+                <div *ngFor="let reply of replies">
+                   <div style="margin-left: 0.5rem"> <app-comments [comment]="reply" [level]="level+1"></app-comments>
+                </div>
+            </div>
+        </div>}
+    </div>
+</div>

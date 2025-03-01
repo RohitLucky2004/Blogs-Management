@@ -1,0 +1,35 @@
+<div class="box1">
+    <div class="box2"><div class="d-flex" style="text-align"> <h2>Profile Details</h2>
+        <div class="back">
+            <button class="btn btn-sm btn-warning" (click)="goBack()">Back</button>
+        </div></div>
+    <table class="table">
+        <tr>
+            <td class="label">Username:</td>
+            <td class="value">{{userdetails.username}}</td>
+        </tr>
+        <tr>
+            <td class="label">Nickname:</td>
+            <td class="value">{{userdetails.nickname}}</td>
+        </tr>
+        <tr>
+            <td class="label">email:</td>
+            <td class="value">{{userdetails.email}}</td>
+        </tr>
+        <tr>
+                <td class="label">Blogs:</td>
+                <td class="value">{{userdetails.BlogsCount}}</td>
+            </tr>
+        <tr>
+            <td class="label">created:</td>
+            <td class="value">{{userdetails.createdAt|date:'dd/MM/YYYY'}} {{userdetails.createdAt|date:'HH:mm'}}</td>
+        </tr>
+        <tr>
+            <td class="label">last Updated:</td>
+            <td class="value">{{userdetails.updatedAt|date:'dd/MM/YYYY'}} {{userdetails.updatedAt|date:'HH:mm'}} </td>
+        </tr>
+    </table>
+@if(user==username){<button class="btn" (click)="edit()">Edit Details</button>}
+</div>
+</div>
+<app-blog-list></app-blog-list>

@@ -1,0 +1,38 @@
+.blog-box{
+    margin:20px 0;
+}
+.blog-box2{
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+h2{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.username{
+    font-size: 1rem;
+    color:10px;
+}
+.desc{
+    font-size: 1.1rem;
+    color:#333;
+    margin-top: 10px;
+}
+.blog-footer{
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+button{
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #0056b3;
+}
